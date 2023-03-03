@@ -1,0 +1,102 @@
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+
+// Default mixins and settings -----------------
+@import '../template/mixins';
+@import '../template/settings';
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url(./fonts/source-sans-pro/source-sans-pro.css);
+@import url(./fonts/inter/inter.css);
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #3f4269;
+
+$mainColor: #fff;
+$headingColor: #fff;
+
+$mainFontSize: 26px;
+$mainFont: 'Inter', 'Source Sans Pro', Helvetica, sans-serif;
+$headingFont: 'Inter', 'Source Sans Pro', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: 600;
+$linkColor: #7b7fab;
+$linkColorHover: lighten($linkColor, 15%);
+$selectionBackgroundColor: rgba($linkColor, 0.75);
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1em;
+
+// Change text colors against light slide backgrounds
+@include light-bg-text-color(#222);
+
+// Theme template ------------------------------
+@import '../template/theme';
+// ---------------------------------------------
+
+// Custom
+$blockColor: $linkColor;
+$blockSecondColor: #2f9fc1;
+
+.reveal {
+  & .slide-main {
+    position: relative;
+  }
+
+  & .slide-image {
+    max-width: 800px;
+    max-height: 650px;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.7);
+
+    &_no-shadow {
+      box-shadow: none;
+    }
+  }
+
+  & .slide-block {
+    // background: $linkColor;
+    background-image: linear-gradient(145deg, rgba($blockSecondColor, 1), rgba($blockColor, 1));
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 25px;
+    border-radius: 10px;
+    z-index: 1;
+    position: relative;
+  }
+
+  & .slide-block-info {
+    background: rgba($headingColor, 0.05);
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 45px 5px 5px;
+    border-radius: 10px;
+    margin-top: -40px;
+    z-index: 0;
+    position: relative;
+
+    & p {
+      margin: 15px;
+      line-height: 1;
+    }
+  }
+
+  & .slide-link {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
